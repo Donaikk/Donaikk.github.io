@@ -1,0 +1,244 @@
+/* Configurações de Cores e Fontes */
+:root {
+    --bg-dark: #080808;
+    --gengar-purple: #7B62A3;
+    --gengar-dark: #2d0a4e;
+    --gengar-eye: #ff1744;
+    --text-gray: #b0b0b0;
+    --font-main: 'Rajdhani', sans-serif;
+    --font-header: 'Orbitron', sans-serif;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Efeito de Névoa de fundo */
+.fog-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(45, 10, 78, 0.25) 0%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(8, 8, 8, 0.9);
+    position: fixed; 
+    width: 100%; 
+    z-index: 100;
+    border-bottom: 1px solid var(--gengar-dark);
+    backdrop-filter: blur(10px);
+}
+
+.logo { font-family: var(--font-header); font-weight: bold; font-size: 1.4rem; letter-spacing: 2px; }
+.highlight { color: var(--gengar-purple); }
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav a { color: white; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
+nav a:hover { color: var(--gengar-eye); }
+
+/* Seção Principal (Hero) */
+header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content { 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+    padding: 20px;
+}
+
+/* Avatar Gengar com Efeito Vermelho no Hover */
+.profile-card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 15px var(--gengar-purple));
+    transition: 0.5s;
+}
+
+.profile-ring {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 3px dashed var(--gengar-purple);
+    animation: rotate 12s linear infinite;
+    transition: 0.5s;
+}
+
+.profile-card:hover .profile-ring { 
+    border-color: var(--gengar-eye); 
+    box-shadow: 0 0 25px var(--gengar-eye); 
+}
+
+.profile-card:hover .profile-img { 
+    filter: drop-shadow(0 0 20px var(--gengar-eye)); 
+}
+
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Textos Hero */
+.glitch-text {
+    font-family: var(--font-header);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    margin-bottom: 10px;
+    text-shadow: 3px 3px var(--gengar-dark);
+}
+
+.role {
+    font-size: 1.2rem;
+    color: var(--gengar-purple);
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.bio { max-width: 600px; font-size: 1.1rem; color: var(--text-gray); margin-bottom: 30px; }
+
+.social-box a {
+    font-size: 1.8rem;
+    color: white;
+    margin: 0 15px;
+    transition: 0.3s;
+}
+
+.social-box a:hover { color: var(--gengar-eye); transform: translateY(-5px); }
+
+/* Botão Centralizado */
+.cta-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+    padding: 16px 35px;
+    background: var(--gengar-dark);
+    border: 1px solid var(--gengar-purple);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+    width: fit-content;
+    font-family: var(--font-header);
+}
+
+.cta-button:hover { 
+    background: var(--gengar-eye); 
+    border-color: white; 
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Grid de Projetos */
+#projetos { padding: 100px 10%; position: relative; z-index: 1; }
+.section-title { text-align: center; margin-bottom: 60px; font-family: var(--font-header); font-size: 2rem; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #111;
+    padding: 35px;
+    border-left: 4px solid var(--gengar-purple);
+    transition: 0.3s;
+    position: relative;
+}
+
+.project-card:hover { border-left-color: var(--gengar-eye); background: #161616; transform: translateY(-5px); }
+
+.project-icon { font-size: 2.5rem; color: var(--gengar-purple); margin-bottom: 20px; }
+
+.tags span {
+    display: inline-block;
+    background: var(--gengar-dark);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 3px;
+    margin: 10px 5px 0 0;
+}
+
+.link-github { display: block; margin-top: 20px; color: var(--gengar-purple); text-decoration: none; font-weight: bold; }
+.link-github:hover { color: var(--gengar-eye); }
+
+/* Estilo Especial para Nidus (Upload em andamento) */
+.status-bar { background: #222; height: 8px; border-radius: 4px; margin-top: 20px; overflow: hidden; }
+.progress { background: var(--gengar-purple); height: 100%; transition: width 0.5s; }
+
+.upload-text {
+    font-size: 0.85rem;
+    color: var(--gengar-purple);
+    margin-top: 15px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Footer */
+footer {
+    padding: 100px 10%;
+    text-align: center;
+    background: linear-gradient(to top, var(--gengar-dark), var(--bg-dark));
+}
+
+.contact-link {
+    font-size: 1.5rem;
+    color: var(--gengar-purple);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin: 20px 0;
+}
+
+.contact-link:hover { color: var(--gengar-eye); }
+
+/* CSS DO EASTER EGG */
+#ghost-gengar {
+    position: fixed; width: 120px; opacity: 0; z-index: 9999;
+    pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#ghost-gengar.visible { opacity: 0.7; transform: scale(1.2); }
+.hidden { display: none; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul { display: none; }
+    .glitch-text { font-size: 2.2rem; }
+}
