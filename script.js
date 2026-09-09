@@ -25,14 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     });
 
-    // Scroll Suave para navegação interna
+    // Scroll Suave para navegação interna: apenas para links com hash (#...)
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const href = this.getAttribute('href');
+            // Só intercepta se for um link de âncora na mesma página (começa com '#')
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetEl = document.querySelector(href);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            // Caso contrário, deixa o comportamento padrão (navegar para outra página)
         });
     });
 });
