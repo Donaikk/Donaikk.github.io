@@ -18,8 +18,8 @@
     <nav>
         <div class="logo">RAFAEL<span class="highlight">PAIVA</span></div>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/projetos.html">Projetos</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
     </nav>
@@ -51,7 +51,7 @@
                 <a href="mailto:pessoalbypaiva@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
             </div>
             
-            <a href="projetos.html" class="cta-button">VER PROJETOS <i class="fas fa-chevron-down"></i></a>
+            <a href="/projetos.html" class="cta-button">VER PROJETOS <i class="fas fa-chevron-down"></i></a>
         </div>
     </header>
 
@@ -63,6 +63,12 @@
         </div>
     </footer>
 
+    <script>
+      // Redireciona hashes antigos que apontem para #projetos à nova página de projetos
+      if (location.hash && location.hash.toLowerCase() === '#projetos') {
+        location.replace('/projetos.html');
+      }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
